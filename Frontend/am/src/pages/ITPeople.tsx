@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Table from '../components/Table'; // Assuming Table.tsx is in the same directory
+import Table from '../components/table/Table'; // Assuming Table.tsx is in the same directory
+import AnimatedPage from '../components/AnimatedPage';
+import './Pages.css'
 
 interface Person {
   id: number;
@@ -44,27 +46,29 @@ const ITPeople: React.FC = () => {
 
 
   return (
-    <div>
-        <h1>IT People</h1>
-        <label>Filter by building:</label>
-        <select
-          value={selectedBuildingId ?? ''}
-          onChange={(e) => setSelectedBuildingId(e.target.value ? Number(e.target.value) : null)}
-        >
-        <option value="">All</option>
-          {buildings.map((b) => (
-            <option key={b.id} value={b.id}>
-              {b.name}
-            </option>
-          ))}
-        </select>
-    
-      <Table
-          headers={headers}
-          data={selectedBuildingId ? people.filter(p => p.building_id === selectedBuildingId) : people}
-          renderRow={renderRow}
-        />
-    </div>
+    <AnimatedPage>
+      <div>
+          <h1>IT People</h1>
+          <label>Filter by building:</label>
+          <select
+            value={selectedBuildingId ?? ''}
+            onChange={(e) => setSelectedBuildingId(e.target.value ? Number(e.target.value) : null)}
+          >
+          <option value="">All</option>
+            {buildings.map((b) => (
+              <option key={b.id} value={b.id}>
+                {b.name}
+              </option>
+            ))}
+          </select>
+      
+        <Table
+            headers={headers}
+            data={selectedBuildingId ? people.filter(p => p.building_id === selectedBuildingId) : people}
+            renderRow={renderRow}
+          />
+      </div>
+    </AnimatedPage>
   );
 };
 

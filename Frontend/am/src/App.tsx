@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Layout from "./layout/Layout";
+import Sidebar from "./components/sidebar/Sidebar"
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import ITPeople from "./pages/ITPeople";
 import Buildings from "./pages/Buildings";
@@ -24,13 +25,18 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <Sidebar
+        isSidebarCollapsed={isSidebarCollapsed}
+        changeIsSidebarCollapsed={(value) =>
+          setIsSidebarCollapsed(value)
+        }
+      />
       <Routes>
         <Route
           element={
             <Layout
               screenWidth={screenWidth}
               isSidebarCollapsed={isSidebarCollapsed}
-              changeIsSidebarCollapsed={setIsSidebarCollapsed}
             />
           }
         >
@@ -38,7 +44,7 @@ const App = () => {
           <Route path="/it-people" element={<ITPeople />} />
           <Route path="/buildings" element={<Buildings />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="/request-am" element={<Resources />} />
+          <Route path="/request-am" element={<RequestAM />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,5 +1,7 @@
 import React from 'react';
-import Table from '../components/Table'; // Assuming Table.tsx is in the same directory
+import Table from '../components/table/Table';
+import AnimatedPage from "../components/AnimatedPage";
+import './Pages.css'
 
 interface User {
   id: number;
@@ -27,10 +29,12 @@ const Buildings: React.FC = () => {
   );
 
   return (
-    <div>
-      <h1>User List</h1>
-      <Table headers={userHeaders} data={users} renderRow={renderUserRow} />
-    </div>
+    <AnimatedPage>
+      <div className='page-box'>
+        <h1>User List</h1>
+        <Table headers={userHeaders} data={users} renderRow={renderUserRow} />
+      </div>
+    </AnimatedPage>
   );
 };
 

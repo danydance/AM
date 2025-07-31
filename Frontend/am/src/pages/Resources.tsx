@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Table from '../components/Table';
+import Table from '../components/table/Table';
+import AnimatedPage from '../components/AnimatedPage';
+import './Pages.css'
 
 interface Resource {
   id: number;
@@ -31,19 +33,21 @@ const Resources: React.FC = () => {
       );
 
       return (
-        <div>
-          <h1>Resources</h1>
+        <AnimatedPage>
+          <div>
+            <h1>Resources</h1>
 
-          <input
-            type="text"
-            placeholder="Search by title..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={{ marginBottom: '1rem', padding: '0.5rem', width: '300px' }}
-          />
+            <input
+              type="text"
+              placeholder="Search by title..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              style={{ marginBottom: '1rem', padding: '0.5rem', width: '300px' }}
+            />
 
-          <Table headers={headers} data={filteredResources} renderRow={renderRow} />
-        </div>
+            <Table headers={headers} data={filteredResources} renderRow={renderRow} />
+          </div>
+        </AnimatedPage>
     );
 };
 
