@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./css-sidebar.css"
 import classNames from "classnames";
 import { Fragment } from "react/jsx-runtime";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 type SidebarProps = {
   isSidebarCollapsed: boolean;
@@ -15,27 +16,27 @@ const Sidebar = ({
   const items = [
     {
       routerLink: "",
-      icon: "fal fa-home",
+      icon: "fas fa-home",
       label: "Home",
     },
     {
       routerLink: "it-people",
-      icon: "fal fa-box-open",
+      icon: "fas fa-box-open",
       label: "AM",
     },
     {
       routerLink: "buildings",
-      icon: "fal fa-file",
+      icon: "fas fa-file",
       label: "buildings",
     },
     {
       routerLink: "resources",
-      icon: "fal fa-cog",
+      icon: "fas fa-cog",
       label: "Resource",
     },
     {
       routerLink: "request-am",
-      icon: "fal fa-cog",
+      icon: "fas fa-cog",
       label: "requests",
     },
   ];
@@ -56,14 +57,12 @@ const Sidebar = ({
     <div className={sidebarClasses}>
       <div className="logo-container">
         <button className="logo" onClick={toggleCollapse}>
-          <i className="fal fa-bars"></i>
+          <i className="fas fa-bars"></i>
         </button>
         {!isSidebarCollapsed && (
           <Fragment>
             <div className="logo-text">App</div>
-            <button className="btn-close" onClick={closeSidenav}>
-              <i className="fal fa-times close-icon"></i>
-            </button>
+            <button className="btn-close" onClick={closeSidenav}></button>
           </Fragment>
         )}
       </div>

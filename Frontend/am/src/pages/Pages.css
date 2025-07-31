@@ -1,8 +1,9 @@
 .page-box {
-  background-color: rgb(83, 80, 80);
+  background-color: #1e1e1e;
   border-radius: 0.5rem;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 2rem; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin: 2rem auto;
   max-width: 90%;
+  color: #f0f0f0;
 }

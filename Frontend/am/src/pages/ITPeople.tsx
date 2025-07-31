@@ -47,7 +47,7 @@ const ITPeople: React.FC = () => {
 
   return (
     <AnimatedPage>
-      <div>
+      <div className='page-box'>
           <h1>IT People</h1>
           <label>Filter by building:</label>
           <select

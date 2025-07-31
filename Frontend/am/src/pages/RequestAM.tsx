@@ -34,7 +34,7 @@ const RequestAM: React.FC = () => {
 
       return (
         <AnimatedPage>
-            <div>
+            <div className='page-box'>
             <h1>Resources</h1>
 
             <input
