@@ -4,6 +4,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import ITPeople from "./pages/ITPeople";
 import Buildings from "./pages/Buildings";
 import Resources from "./pages/Resources";
+import RequestAM from "./pages/RequestAM"
 
 const App = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/it-people" element={<ITPeople />} />
           <Route path="/buildings" element={<Buildings />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/request-am" element={<Resources />} />
         </Route>
       </Routes>
     </BrowserRouter>

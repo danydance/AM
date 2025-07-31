@@ -16,12 +16,12 @@ const Sidebar = ({
     {
       routerLink: "",
       icon: "fal fa-home",
-      label: "Dashboard",
+      label: "Home",
     },
     {
       routerLink: "it-people",
       icon: "fal fa-box-open",
-      label: "אחראי מחשוב",
+      label: "AM",
     },
     {
       routerLink: "buildings",
@@ -31,7 +31,12 @@ const Sidebar = ({
     {
       routerLink: "resources",
       icon: "fal fa-cog",
-      label: "Resources",
+      label: "Resource",
+    },
+    {
+      routerLink: "request-am",
+      icon: "fal fa-cog",
+      label: "requests",
     },
   ];
   const sidebarClasses = classNames({

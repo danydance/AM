@@ -1,5 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
+import classNames from "classnames";
+import "./main.css"; // ✅ your custom layout styles
 
 type LayoutProps = {
   screenWidth: number;
@@ -12,15 +14,20 @@ const Layout = ({
   isSidebarCollapsed,
   changeIsSidebarCollapsed,
 }: LayoutProps) => {
+  const classes = classNames({
+    body: true,
+    "body-trimmed": !isSidebarCollapsed && screenWidth > 768,
+  });
+
   return (
     <>
       <Sidebar
         isSidebarCollapsed={isSidebarCollapsed}
         changeIsSidebarCollapsed={changeIsSidebarCollapsed}
       />
-      <main>
+      <div className="body">
         <Outlet />
-      </main>
+      </div>
     </>
   );
 };
