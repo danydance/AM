@@ -19,20 +19,6 @@ const ITPeople: React.FC = () => {
     const [people, setPeople] = useState<Person[]>([]);
     const [buildings, setBuildings] = useState<Building[]>([]);
     const [selectedBuildingId, setSelectedBuildingId] = useState<number | null>(null);
-
-    useEffect(() => {
-      fetch('http://localhost:8000/it-people')
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("Fetched IT people:", data);
-          setPeople(data);
-        })
-        .catch((err) => console.error('Error fetching IT people:', err));
-    
-    fetch('http://localhost:8000/buildings')
-        .then(res => res.json())
-        .then(data => setBuildings(data));
-    }, []);
   const headers = ['ID', 'Name', 'Building ID', 'Email'];
 
   const renderRow = (person: Person) => (
