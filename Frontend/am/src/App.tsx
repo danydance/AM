@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Layout from "./layout/Layout";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import ITPeople from "./pages/ITPeople";
+import Buildings from "./pages/Buildings";
+import Resources from "./pages/Resources";
 
-function App() {
+const App = () => {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const updateSize = () => {
+      setScreenWidth(window.innerWidth);
+      if (window.innerWidth < 768) {
+        setIsSidebarCollapsed(true);
+      }
+    };
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <BrowserRouter>
+      <Routes>
+        <Route
+          element={
+            <Layout
+              screenWidth={screenWidth}
+              isSidebarCollapsed={isSidebarCollapsed}
+              changeIsSidebarCollapsed={setIsSidebarCollapsed}
+            />
+          }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Route index element={<h1>Welcome to AM</h1>} />
+          <Route path="/it-people" element={<ITPeople />} />
+          <Route path="/buildings" element={<Buildings />} />
+          <Route path="/resources" element={<Resources />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
